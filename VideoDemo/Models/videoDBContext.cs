@@ -43,7 +43,7 @@ namespace VideoDemo.Models
         {
             modelBuilder.Entity<Angular>(entity =>
             {
-                entity.HasKey(e => e.VideoId);
+                entity.HasKey(e => e.VideoId); 
 
                 entity.ToTable("Angular");
 
