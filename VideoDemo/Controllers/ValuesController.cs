@@ -6,37 +6,37 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace VideoDemo.Controllers
 {
-    [Route("toiminnot/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET toiminnot/values
+        // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET toiminnot/values/5
+        // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
             return "value";
         }
 
-        // POST toiminnot/values
+        // POST api/values
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT toiminnot/values/5
+        // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE toiminnot/values/5
+        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

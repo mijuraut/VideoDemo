@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -16,7 +16,7 @@ namespace VideoDemo.Models
         }
 
         public virtual DbSet<Angular> Angular { get; set; }
-        public virtual DbSet<C> C { get; set; }
+        public virtual DbSet<Csharp> Csharp { get; set; }
         public virtual DbSet<Html> Html { get; set; }
         public virtual DbSet<Java> Java { get; set; }
         public virtual DbSet<Sql> Sql { get; set; }
@@ -26,16 +26,26 @@ namespace VideoDemo.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=MIKKO-PC\\SQLEXPRESS;Database=videoDB; Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=tcp:videolearning.database.windows.net,1433;Initial Catalog=videoDB;Persist Security Info=False;User ID=mikkor;Password=Bootcamp1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=300;");
             }
         }
+        
+//        // <add name="northwindEntities"
+//        connectionString="metadata=res://*/Models.NorthwindModel.csdl|res://*/Models.NorthwindModel.
+//ssdl|res://*/Models.NorthwindModel.msl;provider=System.Data.SqlClient;provider connection
+//string=&quot;data source = DESKTOP - 9HQUE97\SQLEXPRESS;initial catalog = northwind; integrated
+//       security = True; MultipleActiveResultSets=True;App=EntityFramework&quot;"
+//providerName="System.Data.EntityClient" />
+            
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Angular>(entity =>
             {
                 entity.HasKey(e => e.VideoId); 
+
+                entity.ToTable("Angular");
 
                 entity.Property(e => e.VideoId).HasColumnName("video_id");
 
@@ -62,11 +72,11 @@ namespace VideoDemo.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<C>(entity =>
+            modelBuilder.Entity<Csharp>(entity =>
             {
                 entity.HasKey(e => e.VideoId);
 
-                entity.ToTable("C#");
+                entity.ToTable("Csharp");
 
                 entity.Property(e => e.VideoId).HasColumnName("video_id");
 
@@ -97,7 +107,7 @@ namespace VideoDemo.Models
             {
                 entity.HasKey(e => e.VideoId);
 
-                entity.ToTable("HTML");
+                entity.ToTable("Html");
 
                 entity.Property(e => e.VideoId).HasColumnName("video_id");
 
@@ -127,6 +137,8 @@ namespace VideoDemo.Models
             modelBuilder.Entity<Java>(entity =>
             {
                 entity.HasKey(e => e.VideoId);
+
+                entity.ToTable("Java");
 
                 entity.Property(e => e.VideoId).HasColumnName("video_id");
 
