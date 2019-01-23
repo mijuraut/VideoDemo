@@ -26,16 +26,10 @@ namespace VideoDemo.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=tcp:videolearning.database.windows.net,1433;Initial Catalog=videoDB;Persist Security Info=False;User ID=mikkor;Password=Bootcamp1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=300;");
+                optionsBuilder.UseSqlServer("Server = tcp:videolearning.database.windows.net, 1433; Initial Catalog = videoDB; Persist Security Info = False; User ID=mikkor; Password=Bootcamp1; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 60; ");
             }
         }
         
-//        // <add name="northwindEntities"
-//        connectionString="metadata=res://*/Models.NorthwindModel.csdl|res://*/Models.NorthwindModel.
-//ssdl|res://*/Models.NorthwindModel.msl;provider=System.Data.SqlClient;provider connection
-//string=&quot;data source = DESKTOP - 9HQUE97\SQLEXPRESS;initial catalog = northwind; integrated
-//       security = True; MultipleActiveResultSets=True;App=EntityFramework&quot;"
-//providerName="System.Data.EntityClient" />
             
 
 
